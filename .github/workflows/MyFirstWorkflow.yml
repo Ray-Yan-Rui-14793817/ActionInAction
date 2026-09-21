@@ -13,9 +13,8 @@ jobs:
     steps:
       - run: echo "Hello World!"
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6.1.0
       - name: List files in repository
         run: |
-          echo "Repository: ${{ github.repository }}"
-          echo "Files checked out on the runner:"
+          echo "The Repository: ${{ github.repository }} contains the fo"
           tree

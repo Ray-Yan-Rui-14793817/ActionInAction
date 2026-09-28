@@ -1,0 +1,50 @@
+# CP5401 Practical 03 - YAML Practice
+course: CP5401 # This is an inline comment
+
+# Scalar data types
+integer: 42
+float: 42.0
+string: a text value
+boolean: true
+null_value: null
+datetime: 1999-12-31T23:59:43.1Z
+
+# Quoted strings
+single_quote: 'This is a single-quoted string'
+double_quote: "This is a double-quoted string"
+
+single_quote_escape: 'It''s a YAML string'
+double_quote_escape: "This string contains a \"quoted word\""
+
+# Multiline string
+learning_notes: |
+  YAML uses indentation to represent structure.
+  YAML supports different data types.
+  YAML is used to write GitHub Actions workflows.
+
+# Map
+student:
+  name: Rui Yan
+  course: CP5401
+  practical: Practical 03
+
+# Nested map
+project:
+  module:
+    number: 3
+    topic: YAML
+  status: learning
+
+# Sequence
+topics:
+  - scalar types
+  - quoted strings
+  - maps
+  - sequences
+  - multiline strings
+
+# Inline map
+student_inline: {name: Rui Yan, course: CP5401, practical: Practical 03}
+
+# Inline sequence
+topics_inline: [YAML, GitHub Actions, Software Quality Engineering]

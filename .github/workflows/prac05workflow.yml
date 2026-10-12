@@ -1,0 +1,45 @@
+name: Prac 05 - Expressions and Contexts
+
+on:
+  workflow_dispatch:
+    
+  jobs:
+  expressions-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display GitHub context
+        run: |
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Branch reference: ${{ github.ref }}"
+          echo "Runner OS: ${{ runner.os }}"
+                - name: Display environment variables
+        env:
+          COURSE: CP5401
+          PRACTICAL: Practical-05
+        run: |
+          echo "Course: ${{ env.COURSE }}"
+          echo "Practical: ${{ env.PRACTICAL }}"
+
+      - name: Check Ubuntu runner
+        if: ${{ runner.os == 'Linux' }}
+        run: echo "This workflow is running on Linux."
+
+      - name: Check main branch
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "The workflow is running on the main branch."
+              - name: Combined condition
+        if: ${{ runner.os == 'Linux' && github.ref == 'refs/heads/main' }}
+        run: echo "Running on Linux and main branch."
+
+      - name: Test startsWith function
+        if: ${{ startsWith(github.ref, 'refs/heads/') }}
+        run: echo "This reference is a branch."
+
+      - name: Run after successful steps
+        if: ${{ success() }}
+        run: echo "All previous steps completed successfully."
+
+      - name: Always run this step
+        if: ${{ always() }}
+        run: echo "This step always runs."

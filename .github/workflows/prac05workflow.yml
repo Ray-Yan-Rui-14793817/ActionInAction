@@ -2,8 +2,8 @@ name: Prac 05 - Expressions and Contexts
 
 on:
   workflow_dispatch:
-    
-  jobs:
+
+jobs:
   expressions-demo:
     runs-on: ubuntu-latest
 
@@ -13,7 +13,8 @@ on:
           echo "Commit SHA: ${{ github.sha }}"
           echo "Branch reference: ${{ github.ref }}"
           echo "Runner OS: ${{ runner.os }}"
-                - name: Display environment variables
+
+      - name: Display environment variables
         env:
           COURSE: CP5401
           PRACTICAL: Practical-05
@@ -28,7 +29,8 @@ on:
       - name: Check main branch
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "The workflow is running on the main branch."
-              - name: Combined condition
+
+      - name: Combined condition
         if: ${{ runner.os == 'Linux' && github.ref == 'refs/heads/main' }}
         run: echo "Running on Linux and main branch."
 
